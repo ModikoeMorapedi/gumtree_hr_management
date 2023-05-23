@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gumtree_hr_management/services/navigation_service.dart';
+import 'package:gumtree_hr_management/services/navigation/navigation_service.dart';
 import 'package:gumtree_hr_management/utils/routes_util.dart';
 import 'package:gumtree_hr_management/utils/service_locator.dart';
 import 'package:gumtree_hr_management/view_models/employees_view_model.dart';

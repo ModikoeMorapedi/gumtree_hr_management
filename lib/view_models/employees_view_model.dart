@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:gumtree_hr_management/services/employees/employees_service.dart';
 import 'package:gumtree_hr_management/models/employee_model.dart';
-import 'package:gumtree_hr_management/services/navigation_service.dart';
+import 'package:gumtree_hr_management/services/navigation/navigation_service.dart';
 import 'package:gumtree_hr_management/utils/routes.dart';
 import 'package:gumtree_hr_management/utils/service_locator.dart';
 import 'package:gumtree_hr_management/utils/strings_util.dart';
