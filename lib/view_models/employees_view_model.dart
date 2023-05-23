@@ -23,15 +23,11 @@ class EmployeesViewModel extends ChangeNotifier {
   List<Data>? _employeesList;
   bool? _isLoading = false;
   Data? _employeeDetails;
-  String? _errorMessage;
-  bool? _isError = false;
 
   //Getters
   List<Data>? get employeesList => _employeesList;
   Data? get employeeDetails => _employeeDetails;
   bool? get isLoading => _isLoading;
-  String? get errorMessage => _errorMessage;
-  bool? get isError => _isError;
 
   //Setters
   setIsLoading(bool? isLoading) {
@@ -51,18 +47,18 @@ class EmployeesViewModel extends ChangeNotifier {
         setIsLoading(false);
         notifyListeners();
       } else {
-        _isError = true;
-        _errorMessage = StringUtil.pleaseTryAgain;
+        _navigationService.navigateToArgs(Routes.errorScreenWidget,
+            arguments: StringUtil.somethingWentWrong);
       }
     } catch (e) {
-      //Set error to true if the is any exception and alse get the exception message
-      _isError = true;
-      _errorMessage = e.toString();
+      // Navigate to the error screen
+      _navigationService.navigateToArgs(Routes.errorScreenWidget,
+          arguments: e.toString());
       setIsLoading(false);
     }
   }
 
-//Get the employee details
+  //Get the employee details
   getEmployeeDetails(int id) async {
     try {
       setIsLoading(true);
@@ -79,13 +75,13 @@ class EmployeesViewModel extends ChangeNotifier {
         //Notify all the listners
         notifyListeners();
       } else {
-        _isError = true;
-        _errorMessage = StringUtil.pleaseTryAgain;
+        _navigationService.navigateToArgs(Routes.errorScreenWidget,
+            arguments: StringUtil.somethingWentWrong);
       }
     } catch (e) {
-      // Set error to true and get the exception message
-      _isError = true;
-      _errorMessage = e.toString();
+      // Navigate to the error screen
+      _navigationService.navigateToArgs(Routes.errorScreenWidget,
+          arguments: e.toString());
       setIsLoading(false);
     }
   }

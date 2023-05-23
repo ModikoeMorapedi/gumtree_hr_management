@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gumtree_hr_management/utils/routes.dart';
 import 'package:gumtree_hr_management/views/employees_details_view.dart';
 import 'package:gumtree_hr_management/views/employees_view.dart';
+import 'package:gumtree_hr_management/widgets/error_screen_widget.dart';
 
 import '../models/employee_model.dart';
 
@@ -10,6 +11,12 @@ class RoutesUtils {
     switch (settings.name) {
       case Routes.employeesView:
         return MaterialPageRoute(builder: (_) => const EmployeesView());
+      case Routes.errorScreenWidget:
+        String? message = settings.arguments as String;
+        return MaterialPageRoute(
+            builder: (_) => ErrorScreenWidget(
+                  message: message,
+                ));
       case Routes.employeeDetailsView:
         Data? data = settings.arguments as Data;
         return MaterialPageRoute(
