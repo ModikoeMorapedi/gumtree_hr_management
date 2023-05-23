@@ -10,6 +10,7 @@ class EmployeeDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Display employee details
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
