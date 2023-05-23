@@ -11,37 +11,34 @@ class EmployeeDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Display employee details
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          backgroundColor: Colors.green[100],
-          body: Padding(
-            padding: const EdgeInsets.all(50),
-            child: Column(
-              children: [
-                RichText(
-                  text: TextSpan(
-                    text: StringUtil.goodDay,
-                    style: gumtreeFontSize34Green,
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: data!.employeeName!,
-                          style: gumtreeFontSize28Green),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.3,
-                ),
-                EmployeeFrameWidget(
-                  name: "${StringUtil.name}: ${data!.employeeName}",
-                  salary:
-                      "${StringUtil.salary}: R ${data!.employeeSalary.toString()}",
-                  age: "${StringUtil.age}: ${data!.employeeAge.toString()}",
-                ),
-              ],
+    return Scaffold(
+      backgroundColor: Colors.green[100],
+      body: Padding(
+        padding: const EdgeInsets.all(50),
+        child: Column(
+          children: [
+            RichText(
+              text: TextSpan(
+                text: StringUtil.goodDay,
+                style: gumtreeFontSize34Green,
+                children: <TextSpan>[
+                  TextSpan(
+                      text: data!.employeeName!, style: gumtreeFontSize28Green),
+                ],
+              ),
             ),
-          ),
-        ));
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.3,
+            ),
+            EmployeeFrameWidget(
+              name: "${StringUtil.name}: ${data!.employeeName}",
+              salary:
+                  "${StringUtil.salary}: R ${data!.employeeSalary.toString()}",
+              age: "${StringUtil.age}: ${data!.employeeAge.toString()}",
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

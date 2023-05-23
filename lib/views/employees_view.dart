@@ -19,35 +19,30 @@ class EmployeesView extends StatelessWidget {
         Provider.of<EmployeesViewModel>(context);
     return Scaffold(
       //Display the Laoding widget while waiting for the employee from the service
-      //Else show error screen
       body: employeesViewModel.isLoading == true
           ? const LoadingWidget()
-          : employeesViewModel.isError == true
-              ? ErrorScreenWidget(
-                  message: employeesViewModel.errorMessage,
-                )
-              : Column(
-                  children: [
-                    const CustomAppBarWidget(
-                      title: StringUtil.gumtreeEmployees,
-                    ),
-                    EmployeesListViewWidget(
-                      itemCount: employeesViewModel.employeesList!.length,
-                      itemBuilder: (context, index) => EmployeesListTileWidget(
-                        title: employeesViewModel
-                            .employeesList![index].employeeName!,
-                        subtitle: employeesViewModel
-                            .employeesList![index].employeeSalary
-                            .toString(),
-                        onTap: () async {
-                          //Selecting the employee will take you to the employee's details page
-                          await employeesViewModel.getEmployeeDetails(
-                              employeesViewModel.employeesList![index].id!);
-                        },
-                      ),
-                    ),
-                  ],
+          : Column(
+              children: [
+                const CustomAppBarWidget(
+                  title: StringUtil.gumtreeEmployees,
                 ),
+                EmployeesListViewWidget(
+                  itemCount: employeesViewModel.employeesList!.length,
+                  itemBuilder: (context, index) => EmployeesListTileWidget(
+                    title:
+                        employeesViewModel.employeesList![index].employeeName!,
+                    subtitle: employeesViewModel
+                        .employeesList![index].employeeSalary
+                        .toString(),
+                    onTap: () async {
+                      //Selecting the employee will take you to the employee's details page
+                      await employeesViewModel.getEmployeeDetails(
+                          employeesViewModel.employeesList![index].id!);
+                    },
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }
