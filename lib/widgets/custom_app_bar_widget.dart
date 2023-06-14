@@ -16,7 +16,7 @@ class CustomAppBarWidget extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 5,
       child: Text(
         title!,
-        style: gumtreeFontSize34Black,
+        style: gumtreeFontSize26Black,
       ),
     );
   }

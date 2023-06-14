@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gumtree_hr_management/services/navigation/navigation_service.dart';
 import 'package:gumtree_hr_management/utils/routes_util.dart';
 import 'package:gumtree_hr_management/utils/service_locator.dart';
+import 'package:gumtree_hr_management/utils/size_config.dart';
 import 'package:gumtree_hr_management/view_models/employees_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -14,24 +15,33 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [
-          ChangeNotifierProvider<EmployeesViewModel>(
-              create: (_) => EmployeesViewModel()),
-        ],
-        child: MaterialApp(
-          title: 'Gumtree HR Management',
-          theme: ThemeData(
-            primarySwatch: Colors.green,
-          ),
-          home: const EmployeesView(),
-          onGenerateRoute: RoutesUtils.generateRoute,
-          navigatorKey: locator<NavigationService>().navigatorKey,
-          debugShowCheckedModeBanner: false,
-        ));
+      providers: [
+        ChangeNotifierProvider<EmployeesViewModel>(
+            create: (_) => EmployeesViewModel()),
+      ],
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return OrientationBuilder(
+            builder: (context, orientation) {
+              SizeConfig().init(constraints, orientation);
+              return MaterialApp(
+                title: 'Gumtree HR Management',
+                theme: ThemeData(
+                  primarySwatch: Colors.green,
+                ),
+                home: const EmployeesView(),
+                onGenerateRoute: RoutesUtils.generateRoute,
+                navigatorKey: locator<NavigationService>().navigatorKey,
+                debugShowCheckedModeBanner: false,
+              );
+            },
+          );
+        },
+      ),
+    );
   }
 }

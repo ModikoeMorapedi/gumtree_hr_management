@@ -1,26 +1,16 @@
 import 'dart:convert';
 
 import 'package:gumtree_hr_management/models/employee_model.dart';
+import 'package:gumtree_hr_management/services/base/base_service.dart';
 import 'package:gumtree_hr_management/services/employees/i_employees_service.dart';
 import '../../utils/constants.dart';
 import 'package:http/http.dart' as http;
 
 //Implementation the IEmployees service
-class EmployeesService extends IEmployeesService {
+class EmployeesService extends BaseService implements IEmployeesService {
   @override
   Future<Employee>? getEmployees() async {
-    try {
-      //Get the employees
-      final response = await http.get(Uri.https(baseUrl, employeesPath));
-      //Check if the response is 200
-      if (response.statusCode == 200) {
-        //Decode and Map the employee's details
-        return Employee.fromJson(jsonDecode(response.body));
-      } else {
-        return jsonDecode(response.statusCode.toString());
-      }
-    } catch (err) {
-      throw Exception();
-    }
+    final response = await getAsync(employeesPath);
+    return Employee.fromJson(response);
   }
 }

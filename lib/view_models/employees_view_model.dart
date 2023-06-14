@@ -1,12 +1,11 @@
 import 'package:flutter/foundation.dart';
-import 'package:gumtree_hr_management/services/employees/employees_service.dart';
+import 'package:gumtree_hr_management/services/employee/i_employee_details_service.dart';
 import 'package:gumtree_hr_management/models/employee_model.dart';
+import 'package:gumtree_hr_management/services/employees/i_employees_service.dart';
 import 'package:gumtree_hr_management/services/navigation/navigation_service.dart';
 import 'package:gumtree_hr_management/utils/routes.dart';
 import 'package:gumtree_hr_management/utils/service_locator.dart';
 import 'package:gumtree_hr_management/utils/strings_util.dart';
-
-import '../services/employee/employee_details_service.dart';
 
 class EmployeesViewModel extends ChangeNotifier {
   EmployeesViewModel() : super() {
@@ -14,10 +13,10 @@ class EmployeesViewModel extends ChangeNotifier {
   }
 
   //Initializing the services
-  final NavigationService _navigationService = locator<NavigationService>();
-  final EmployeesService _employeesService = EmployeesService();
-  final EmployeeDetailsService _employeeDetailsService =
-      EmployeeDetailsService();
+  final _navigationService = locator<NavigationService>();
+  final _employeesService =
+      locator<IEmployeesService>(instanceName: "employeesService");
+  final _employeeDetailsService = locator<IEmployeeDetailsService>();
 
   //Private properties
   List<Data>? _employeesList;

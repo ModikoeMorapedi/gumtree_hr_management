@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gumtree_hr_management/models/employee_model.dart';
 import 'package:gumtree_hr_management/utils/font_style_util.dart';
+import 'package:gumtree_hr_management/utils/sizes_util.dart';
 import 'package:gumtree_hr_management/utils/strings_util.dart';
 import 'package:gumtree_hr_management/widgets/employee_frame_widget.dart';
 
@@ -20,10 +21,10 @@ class EmployeeDetailsView extends StatelessWidget {
             RichText(
               text: TextSpan(
                 text: StringUtil.goodDay,
-                style: gumtreeFontSize34Green,
+                style: gumtreeFontSize24Green,
                 children: <TextSpan>[
                   TextSpan(
-                      text: data!.employeeName!, style: gumtreeFontSize28Green),
+                      text: data!.employeeName!, style: gumtreeFontSize22Green),
                 ],
               ),
             ),
@@ -36,6 +37,15 @@ class EmployeeDetailsView extends StatelessWidget {
                   "${StringUtil.salary}: R ${data!.employeeSalary.toString()}",
               age: "${StringUtil.age}: ${data!.employeeAge.toString()}",
             ),
+            Container(
+              //margin: const EdgeInsets.all(35),
+              width: 300,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("Back")),
+            )
           ],
         ),
       ),

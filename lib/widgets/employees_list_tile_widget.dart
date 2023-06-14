@@ -12,8 +12,9 @@ class EmployeesListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.all(8.0),
+      margin: const EdgeInsets.only(left: 20, right: 20),
       child: ListTile(
         shape: RoundedRectangleBorder(
           side: const BorderSide(width: 2),
@@ -22,11 +23,11 @@ class EmployeesListTileWidget extends StatelessWidget {
         trailing: const Icon(Icons.more_vert),
         title: Text(
           title!,
-          style: gumtreeFontSize20Green,
+          style: gumtreeFontSize16Green,
         ),
         subtitle: Text(
           subtitle!,
-          style: gumtreeFontSize20Green,
+          style: gumtreeFontSize16Green,
         ),
         onTap: onTap,
       ),

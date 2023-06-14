@@ -1,31 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gumtree_hr_management/utils/colors_util.dart';
+import 'package:gumtree_hr_management/utils/sizes_util.dart';
 
-TextStyle gumtreeFontSize20Black = GoogleFonts.dosis(
-  textStyle: const TextStyle(color: ColorsUtil.blackColor, fontSize: 20),
+//Green
+TextStyle gumtreeFontSize16Green = GoogleFonts.dosis(
+  textStyle:
+      TextStyle(color: ColorsUtil.greenColor, fontSize: SizesUtil.textSize_16),
+);
+TextStyle gumtreeFontSize18Green = GoogleFonts.dosis(
+  textStyle:
+      TextStyle(color: ColorsUtil.greenColor, fontSize: SizesUtil.textSize_18),
 );
 TextStyle gumtreeFontSize20Green = GoogleFonts.dosis(
-  textStyle: const TextStyle(color: ColorsUtil.greenColor, fontSize: 20),
+  textStyle:
+      TextStyle(color: ColorsUtil.greenColor, fontSize: SizesUtil.textSize_20),
 );
-
+TextStyle gumtreeFontSize22Green = GoogleFonts.dosis(
+  textStyle:
+      TextStyle(color: ColorsUtil.greenColor, fontSize: SizesUtil.textSize_22),
+);
+TextStyle gumtreeFontSize24Green = GoogleFonts.dosis(
+  textStyle:
+      TextStyle(color: ColorsUtil.greenColor, fontSize: SizesUtil.textSize_24),
+);
 TextStyle gumtreeFontSize28Green = GoogleFonts.dosis(
-    textStyle: const TextStyle(
+    textStyle: TextStyle(
         color: ColorsUtil.greenColor,
-        fontSize: 28,
+        fontSize: SizesUtil.textSize_30,
         fontWeight: FontWeight.bold));
-TextStyle gumtreeFontSize28Red = GoogleFonts.dosis(
-    textStyle: const TextStyle(
-        color: ColorsUtil.redColor, fontSize: 28, fontWeight: FontWeight.bold));
 
 TextStyle gumtreeFontSize34Green = GoogleFonts.dosis(
-    textStyle: const TextStyle(
+    textStyle: TextStyle(
         color: ColorsUtil.greenColor,
-        fontSize: 34,
+        fontSize: SizesUtil.textSize_36,
         fontWeight: FontWeight.bold));
-
-TextStyle gumtreeFontSize34Black = GoogleFonts.dosis(
-    textStyle: const TextStyle(
+//Red
+TextStyle gumtreeFontSize28Red = GoogleFonts.dosis(
+    textStyle: TextStyle(
+        color: ColorsUtil.redColor,
+        fontSize: SizesUtil.textSize_30,
+        fontWeight: FontWeight.bold));
+//Black
+TextStyle gumtreeFontSize18Black = GoogleFonts.dosis(
+  textStyle:
+      TextStyle(color: ColorsUtil.blackColor, fontSize: SizesUtil.textSize_18),
+);
+TextStyle gumtreeFontSize20Black = GoogleFonts.dosis(
+    textStyle: TextStyle(
+        color: ColorsUtil.blackColor, fontSize: SizesUtil.textSize_20));
+TextStyle gumtreeFontSize22Black = GoogleFonts.dosis(
+    textStyle: TextStyle(
+        color: ColorsUtil.blackColor, fontSize: SizesUtil.textSize_22));
+TextStyle gumtreeFontSize24Black = GoogleFonts.dosis(
+    textStyle: TextStyle(
+        color: ColorsUtil.blackColor, fontSize: SizesUtil.textSize_24));
+TextStyle gumtreeFontSize26Black = GoogleFonts.dosis(
+    textStyle: TextStyle(
+        color: ColorsUtil.blackColor, fontSize: SizesUtil.textSize_26));
+TextStyle gumtreeFontSize32Black = GoogleFonts.dosis(
+    textStyle: TextStyle(
         color: ColorsUtil.blackColor,
-        fontSize: 34,
+        fontSize: SizesUtil.textSize_32,
         fontWeight: FontWeight.bold));
