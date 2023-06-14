@@ -11,6 +11,8 @@ final locator = GetIt.instance;
 void setupLocator() {
   //Services
   locator.registerLazySingleton<NavigationService>(() => NavigationService());
+  //Incase there are multiple implementations of the interface or abstract class,
+  //we add instanceName parameter to identify the implementation
   locator.registerFactory<IEmployeesService>(() => EmployeesService(),
       instanceName: "employeesService");
   locator
